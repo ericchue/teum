@@ -27,7 +27,6 @@ html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 :root{
   --paper:#F3F5F9; --surface:#FFFFFF; --ink:#141B2B; --muted:#576274; --line:#E0E5EE; --grid:#EEF1F6;
   --accent:#2D55D9; --accent-ink:#FFFFFF; --accent-soft:#E6ECFD;
-  --hl:rgba(255,222,40,.34); --hl-ink:#7A6200;
   --warn:#C2410C; --ok:#2F7D32; --danger:#B42318; --sun:#D23B3B; --sat:#2D55D9;
   --c0-bg:#E8EEFF; --c0-fg:#1A3483; --c0-bd:#3B66F5;
   --c1-bg:#F1EAFE; --c1-fg:#4C1D95; --c1-bd:#8B5CF6;
@@ -35,7 +34,7 @@ html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
   --c3-bg:#FDE8EF; --c3-fg:#881337; --c3-bd:#E64980;
   --c4-bg:#FFEDE3; --c4-fg:#7C2D12; --c4-bd:#F07A2E;
   --c5-bg:#DFF5F3; --c5-fg:#134E4A; --c5-bd:#14A39A;
-  --c6-bg:#FDF3D7; --c6-fg:#713F12; --c6-bd:#D99A00;
+  --c6-bg:#FDE7E7; --c6-fg:#8A1C1C; --c6-bd:#E5484D;
   --c7-bg:#ECEFF4; --c7-fg:#334155; --c7-bd:#7A889E;
   --f-display:"Do Hyeon","IBM Plex Sans KR",system-ui,sans-serif;
   --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
@@ -44,7 +43,6 @@ html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --paper:#0E1219; --surface:#151A24; --ink:#EDF0F6; --muted:#A1ABBD; --line:#272F3F; --grid:#1B2230;
   --accent:#7393FF; --accent-ink:#0B1020; --accent-soft:#1E2848;
-  --hl:rgba(255,222,70,.13); --hl-ink:#E9D46A;
   --warn:#FB923C; --ok:#6BCB77; --danger:#F87171; --sun:#FF8A8A; --sat:#8FA8FF;
   --c0-bg:#1B2647; --c0-fg:#D3DDFF; --c0-bd:#6F8FFF;
   --c1-bg:#281D45; --c1-fg:#E4D6FF; --c1-bd:#A684FF;
@@ -52,13 +50,12 @@ html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
   --c3-bg:#381625; --c3-fg:#FFCCDD; --c3-bd:#F06A9A;
   --c4-bg:#382014; --c4-fg:#FFD3BB; --c4-bd:#F59152;
   --c5-bg:#10302D; --c5-fg:#B0EEE8; --c5-bd:#2EC4B6;
-  --c6-bg:#31280C; --c6-fg:#F8E2A2; --c6-bd:#E8B520;
+  --c6-bg:#3A1717; --c6-fg:#FFC9C9; --c6-bd:#F2555A;
   --c7-bg:#222936; --c7-fg:#D3DAE5; --c7-bd:#8F9BB0;
   color-scheme:dark}}
 :root[data-theme="dark"]{
   --paper:#0E1219; --surface:#151A24; --ink:#EDF0F6; --muted:#A1ABBD; --line:#272F3F; --grid:#1B2230;
   --accent:#7393FF; --accent-ink:#0B1020; --accent-soft:#1E2848;
-  --hl:rgba(255,222,70,.13); --hl-ink:#E9D46A;
   --warn:#FB923C; --ok:#6BCB77; --danger:#F87171; --sun:#FF8A8A; --sat:#8FA8FF;
   --c0-bg:#1B2647; --c0-fg:#D3DDFF; --c0-bd:#6F8FFF;
   --c1-bg:#281D45; --c1-fg:#E4D6FF; --c1-bd:#A684FF;
@@ -66,7 +63,7 @@ html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
   --c3-bg:#381625; --c3-fg:#FFCCDD; --c3-bd:#F06A9A;
   --c4-bg:#382014; --c4-fg:#FFD3BB; --c4-bd:#F59152;
   --c5-bg:#10302D; --c5-fg:#B0EEE8; --c5-bd:#2EC4B6;
-  --c6-bg:#31280C; --c6-fg:#F8E2A2; --c6-bd:#E8B520;
+  --c6-bg:#3A1717; --c6-fg:#FFC9C9; --c6-bd:#F2555A;
   --c7-bg:#222936; --c7-fg:#D3DAE5; --c7-bd:#8F9BB0;
   color-scheme:dark}
 *{box-sizing:border-box}
@@ -80,7 +77,7 @@ h1,h2,h3{text-wrap:balance}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:13;background:var(--paper)}
 .top .wrap{display:flex;align-items:center;gap:18px;padding-block:10px}
 .logo{font-family:var(--f-display);font-size:30px;line-height:1;position:relative;isolation:isolate;border:0;background:none;padding:0 2px}
-.logo::after{content:"";position:absolute;left:-3px;right:-3px;bottom:3px;height:11px;background:var(--hl);z-index:-1;border-radius:2px}
+.logo{color:var(--accent)}
 .topnav{display:flex;gap:2px;flex:1}
 .topnav button{border:0;background:transparent;padding:7px 12px;border-radius:8px;color:var(--muted);font-size:14px}
 .topnav button:hover{color:var(--ink);background:var(--grid)}
@@ -109,7 +106,7 @@ main{padding-block:18px 60px}
 .fakeinput{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:13px 14px;color:var(--muted);font-size:15px}
 .fakeinput:hover{border-color:var(--accent)}
 .fakeinput .plus{width:26px;height:26px;border-radius:8px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-size:18px;flex:none}
-.banner{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between;border:1px solid var(--c6-bd);background:var(--c6-bg);color:var(--c6-fg);border-radius:12px;padding:12px 14px}
+.banner{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;justify-content:space-between;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);background:var(--accent-soft);color:var(--ink);border-radius:12px;padding:12px 14px}
 .banner .acts{display:flex;gap:6px;flex-wrap:wrap}
 .welcome{display:grid;gap:12px}
 .welcome h3{margin:0;font-family:var(--f-display);font-weight:400;font-size:24px}
@@ -136,8 +133,12 @@ main{padding-block:18px 60px}
 .tlr .tx span{font-size:12px;color:var(--muted)}
 .tlr.task .bar{background:repeating-linear-gradient(180deg,var(--bd) 0 4px,transparent 4px 7px)}
 .tlr.past{opacity:.45}
-.tlr.gap .bar{background:var(--hl);min-height:22px}
-.tlr.gap .tx b{font-weight:500;color:var(--hl-ink)}
+.tlr.gap{padding:4px 0}
+.tlr.gap .bar{background:none;border-left:2px dashed var(--line);border-radius:0;min-height:18px;margin-left:1px}
+.tlr.gap .tm{opacity:.6}
+.tlr.gap .tx b{font-weight:400;font-size:12.5px;color:var(--muted)}
+.tlr.gap .tx span{display:none}
+.tlr.gap:hover .tx span{display:inline}
 .tlr.now-row .tm{color:var(--danger);font-weight:500}
 .duel{display:grid;gap:4px;padding:10px 0;border-top:1px solid var(--line)}
 .duel:first-child{border-top:0}
@@ -216,8 +217,6 @@ main{padding-block:18px 60px}
 .tcol span{position:absolute;right:6px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);transform:translateY(-7px)}
 .dcol{position:relative;border-left:1px solid var(--line);cursor:copy}
 .dcol.past{background-color:color-mix(in srgb,var(--grid) 40%,transparent)}
-.gap{position:absolute;left:0;right:0;background:var(--hl);pointer-events:none;display:flex;align-items:flex-end;justify-content:flex-end;padding:2px 6px}
-.gap span{font-size:10.5px;font-weight:700;color:var(--hl-ink)}
 .ev{position:absolute;border-radius:7px;padding:3px 7px;font-size:12.5px;line-height:1.3;overflow:hidden;border:1px solid color-mix(in srgb,var(--bd) 30%,transparent);border-left:4px solid var(--bd);cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:1px;background:var(--bg);color:var(--fg)}
 .ev:hover{filter:brightness(.97);z-index:3}
 .ev .et{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -232,7 +231,6 @@ main{padding-block:18px 60px}
 .legend{display:flex;flex-wrap:wrap;gap:8px 16px;padding:10px 14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
 .legend i{display:inline-block;width:14px;height:11px;border-radius:3px;vertical-align:-1px;margin-right:5px}
 .legend .p-task{background:repeating-linear-gradient(135deg,var(--c7-bg) 0 3px,var(--surface) 3px 6px);border:1px dashed var(--c7-bd)}
-.legend .p-gap{background:var(--hl)}
 .two{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px;align-items:start}
 .task{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:4px 10px;align-items:start;padding:11px 0;border-top:1px solid var(--line)}
 .task:first-of-type{border-top:0}
@@ -592,10 +590,6 @@ function timeGrid(dates,px,mode){
     const busy=busyOf(all),pct=Math.min(100,busy/(DAY_E-DAY_S)*100),lvl=busy>=9*60?'high':busy>=6*60?'mid':'';
     if(!single)head+=`<button class="dh ${wkCls(i)} ${ds===todayS?'today':''}" data-openday="${ds}"><div class="top2"><span class="dn">${DAYS[i]}</span><span class="dd">${d.getDate()}</span>${busy>=9*60?'<span class="busy">과부하</span>':''}</div><div class="dens" title="바쁜 시간 ${hrs(busy)}"><i class="${lvl}" style="width:${pct}%"></i></div></button>`;
     let inner='';
-    if(d>=T){
-      const ws=ds===todayS?Math.max(DAY_S,Math.ceil(nowMin()/30)*30):DAY_S;
-      freeGaps(all,ws,DAY_E).forEach(g=>{if(g.e-g.s>=60)inner+=`<div class="gap" style="top:${(g.s/60-H0)*px}px;height:${(g.e-g.s)/60*px}px"><span>틈 ${hrs(g.e-g.s)}</span></div>`});
-    }
     layout(all.filter(x=>!state.hidden.includes(x.cat))).forEach(it=>{
       const k=reg(it);
       const top=(it.s/60-H0)*px,h=Math.max(18,(it.e-it.s)/60*px-2),w=100/it.lanes;
@@ -615,7 +609,7 @@ function timelineHTML(ds,withGaps){
   }
   rows.sort((a,b)=>a.s-b.s);
   let html=rows.map(r=>{
-    if(r.type==='gap')return `<button class="tlr gap" data-add data-date="${ds}" data-time="${toHM(r.g.s)}" data-end="${toHM(r.g.e)}"><span class="tm">${toHM(r.g.s)}<small>${toHM(r.g.e)}</small></span><span class="bar"></span><span class="tx"><b>빈 틈 ${hrs(r.g.e-r.g.s)}</b><span>눌러서 이 시간에 일정 넣기</span></span><span></span></button>`;
+    if(r.type==='gap')return `<button class="tlr gap" data-add data-date="${ds}" data-time="${toHM(r.g.s)}" data-end="${toHM(r.g.e)}"><span class="tm">${toHM(r.g.s)}<small>${toHM(r.g.e)}</small></span><span class="bar"></span><span class="tx"><b>빈 시간 ${hrs(r.g.e-r.g.s)}</b><span> · 눌러서 일정 넣기</span></span><span></span></button>`;
     const it=r.it,past=isToday&&it.e<=nm,cur=isToday&&it.s<=nm&&it.e>nm;
     const tag=it.kind==='repeat'?'↻ 매주':it.kind==='task'?'과제 작업':'';
     return `<button class="tlr ${it.kind==='task'?'task':''} ${past?'past':''} ${cur?'now-row':''}" data-ev="${reg(it)}" style="${cvars(it.cat)}"><span class="tm">${toHM(it.s)}<small>${toHM(it.e)}</small></span><span class="bar"></span><span class="tx"><b>${esc(it.title)}</b><span>${[cur?'지금 진행 중':'',tag,it.place].filter(Boolean).map(esc).join(' · ')}</span></span>${pill(it.cat)}</button>`;
@@ -712,7 +706,7 @@ function vCal(){
     const mon=mondayOf(d),e=addDays(mon,6);
     ttl=`${mon.getMonth()+1}월 ${mon.getDate()}일 – ${e.getMonth()===mon.getMonth()?'':(e.getMonth()+1)+'월 '}${e.getDate()}일`;
     body=`<section class="card calcard swipe">${timeGrid([0,1,2,3,4,5,6].map(i=>addDays(mon,i)),46,'week')}
-      <div class="legend"><span><i class="p-task"></i>과제 작업 (자동 배치)</span><span><i class="p-gap"></i>1시간 이상 빈 틈</span><span>↻ 매주 반복 · 날짜를 누르면 하루 보기 · 빈 칸을 누르면 그 시간에 추가</span></div></section>
+      <div class="legend"><span><i class="p-task"></i>과제 작업 (자동 배치)</span><span>↻ 매주 반복 · 날짜를 누르면 하루 보기 · 빈 칸을 누르면 그 시간에 추가</span></div></section>
       <div class="catsum">${weekCatSummary(mon)}</div>`;
   }else{
     ttl=`${d.getMonth()+1}월 ${d.getDate()}일 ${DAYS[wdIdx(d)]}요일`;
