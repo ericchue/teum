@@ -1,0 +1,17 @@
+{
+  "name": "틈 캘린더",
+  "short_name": "틈",
+  "description": "수업 사이 빈 시간에 약속과 과제를 끼워 넣는 캘린더",
+  "lang": "ko",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F3F5F9",
+  "theme_color": "#2D55D9",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ]
+}
